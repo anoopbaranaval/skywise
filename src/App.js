@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
+
 import './App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import ListAccountHolder from './components/ListAccountHolder';
+import CreateAccountHolder from './components/CreateAccountHolder';
+import ViewAccountHolder from './components/ViewAccountHolder';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <Router>
+              
+                <div className="container">
+                    <Switch> 
+                          <Route path = "/" exact component = {ListAccountHolder}></Route>
+                          <Route path = "/accountholders" component = {ListAccountHolder}></Route>
+                          <Route path = "/add-accountholder/:id" component = {CreateAccountHolder}></Route>
+                          <Route path = "/view-accountholder/:id" component = {ViewAccountHolder}></Route>
+                          {/* <Route path = "/update-accountholder/:id" component = {UpdateEmployeeComponent}></Route> */}
+                    </Switch>
+                 </div>              
+        </Router>
     </div>
+    
   );
 }
 
